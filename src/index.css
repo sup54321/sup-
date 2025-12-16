@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Inventure Premium Palette */
+    --background: 216 50% 8%;
+    --foreground: 45 30% 96%;
+
+    --card: 216 45% 11%;
+    --card-foreground: 45 30% 96%;
+
+    --popover: 216 45% 11%;
+    --popover-foreground: 45 30% 96%;
+
+    --primary: 42 45% 59%;
+    --primary-foreground: 216 50% 8%;
+
+    --secondary: 216 35% 15%;
+    --secondary-foreground: 45 30% 96%;
+
+    --muted: 216 30% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 42 45% 59%;
+    --accent-foreground: 216 50% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 216 30% 20%;
+    --input: 216 30% 20%;
+    --ring: 42 45% 59%;
+
+    --radius: 0.5rem;
+
+    /* Custom Inventure tokens */
+    --gold: 42 45% 59%;
+    --gold-light: 42 50% 70%;
+    --gold-dark: 42 40% 45%;
+    --navy: 216 50% 8%;
+    --navy-light: 216 45% 15%;
+    --cream: 45 30% 96%;
+    --cream-dark: 45 20% 90%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(42 50% 70%), hsl(42 45% 59%), hsl(42 40% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(216 50% 8%), hsl(216 45% 5%));
+    --gradient-card: linear-gradient(145deg, hsl(216 45% 13%), hsl(216 45% 9%));
+    --gradient-hero: linear-gradient(135deg, hsl(216 50% 6%) 0%, hsl(216 45% 12%) 50%, hsl(216 50% 8%) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(42 45% 59% / 0.15);
+    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.4);
+
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  .dark {
+    --background: 216 50% 8%;
+    --foreground: 45 30% 96%;
+    --card: 216 45% 11%;
+    --card-foreground: 45 30% 96%;
+    --popover: 216 45% 11%;
+    --popover-foreground: 45 30% 96%;
+    --primary: 42 45% 59%;
+    --primary-foreground: 216 50% 8%;
+    --secondary: 216 35% 15%;
+    --secondary-foreground: 45 30% 96%;
+    --muted: 216 30% 18%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 42 45% 59%;
+    --accent-foreground: 216 50% 8%;
+    --border: 216 30% 20%;
+    --input: 216 30% 20%;
+    --ring: 42 45% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-gold {
+    border-image: var(--gradient-gold) 1;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Elegant line decorations */
+  .gold-line {
+    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+
+  .gold-line-left {
+    @apply h-px bg-gradient-to-r from-primary to-transparent;
+  }
+
+  /* Animated underline */
+  .hover-underline {
+    @apply relative;
+  }
+
+  .hover-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300;
+  }
+
+  .hover-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+}
